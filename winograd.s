@@ -34,6 +34,10 @@ main:
     mul t4, t3, t4  # t4 = (d[1] + d[2]) * (g[0] + g[1] + g[2])
     srli s3, t4, 1  # s3 = m2 (divide by 2)
 
+    # Load g[0] and g[1]
+    lw t2, 0(s1)  # t2 = g[0]
+    lw t4, 4(s1)  # t4 = g[1]
+
     # Compute m3 = (d[2] - d[1]) * (g[0] - g[1] + g[2]) // 2
     sub t3, t1, t0  # t3 = d[2] - d[1]
     sub t4, t2, t4  # t4 = g[0] - g[1]
